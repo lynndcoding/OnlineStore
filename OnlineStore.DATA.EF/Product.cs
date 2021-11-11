@@ -20,8 +20,8 @@ namespace OnlineStore.DATA.EF
         public string BeerDesc { get; set; }
         public string ABV { get; set; }
         public string BeerImage { get; set; }
-        public int StatusID { get; set; }
-        public int PkgID { get; set; }
+        public Nullable<int> StatusID { get; set; }
+        public Nullable<int> PkgID { get; set; }
     
         public virtual BeerStyle BeerStyle { get; set; }
         public virtual Package Package { get; set; }

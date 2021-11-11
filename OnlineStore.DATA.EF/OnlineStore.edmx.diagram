@@ -5,22 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="f6609111e0474029a45726d3e32f37ec" Name="Diagram1">
-        <EntityTypeShape EntityType="OnlineStoreModel.C__MigrationHistory" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineStoreModel.AspNetRole" Width="1.5" PointX="5.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineStoreModel.AspNetUserClaim" Width="1.5" PointX="10.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineStoreModel.AspNetUserLogin" Width="1.5" PointX="10.25" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineStoreModel.AspNetUser" Width="1.5" PointX="8" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineStoreModel.BeerStyle" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineStoreModel.Package" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineStoreModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineStoreModel.Status" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineStoreModel.sysdiagram" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
-        <AssociationConnector Association="OnlineStoreModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="OnlineStoreModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="OnlineStoreModel.FK_Products_BeerStyles" ManuallyRouted="false" />
-        <AssociationConnector Association="OnlineStoreModel.FK_Products_Packages" ManuallyRouted="false" />
-        <AssociationConnector Association="OnlineStoreModel.FK_Products_Statuses" ManuallyRouted="false" />
-        <AssociationConnector Association="OnlineStoreModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="OnlineStoreModel.BeerStyle" Width="1.5" PointX="0.75" PointY="1.5" />
+        <EntityTypeShape EntityType="OnlineStoreModel.Package" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="OnlineStoreModel.Product" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="OnlineStoreModel.FK_Products_BeerStyles" />
+        <AssociationConnector Association="OnlineStoreModel.FK_Products_Packages" />
+        <EntityTypeShape EntityType="OnlineStoreModel.Status" Width="1.5" PointX="0.75" PointY="8.75" />
+        <AssociationConnector Association="OnlineStoreModel.FK_Products_Statuses" />
+        <EntityTypeShape EntityType="OnlineStoreModel.UserDetail" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

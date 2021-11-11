@@ -46,10 +46,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -168,15 +168,20 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BeerStylesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PackagesController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
+    <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\CartItemView.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -187,6 +192,37 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Labels\backscatter.png" />
+    <Content Include="Content\Labels\beachdreams.png" />
+    <Content Include="Content\Labels\chaeson.png" />
+    <Content Include="Content\Labels\cloudywethops.png" />
+    <Content Include="Content\Labels\cloverstorm.png" />
+    <Content Include="Content\Labels\coconutporter.jpg" />
+    <Content Include="Content\Labels\cohumulonimbus.png" />
+    <Content Include="Content\Labels\comettsunami.png" />
+    <Content Include="Content\Labels\dankskies.png" />
+    <Content Include="Content\Labels\derecho.png" />
+    <Content Include="Content\Labels\Effingpennington.png" />
+    <Content Include="Content\Labels\frogstrangler.png" />
+    <Content Include="Content\Labels\fujitascaleale.png" />
+    <Content Include="Content\Labels\germanchoccake.png" />
+    <Content Include="Content\Labels\groundstrike.png" />
+    <Content Include="Content\Labels\hurricane.png" />
+    <Content Include="Content\Labels\imperialsmash.png" />
+    <Content Include="Content\Labels\jaiyen.png" />
+    <Content Include="Content\Labels\kchazy.png" />
+    <Content Include="Content\Labels\keylimepie.jpg" />
+    <Content Include="Content\Labels\mikecroburst.png" />
+    <Content Include="Content\Labels\mikecroburstjr.png" />
+    <Content Include="Content\Labels\noctilucent.png" />
+    <Content Include="Content\Labels\okracornlager.png" />
+    <Content Include="Content\Labels\oysterstout.png" />
+    <Content Include="Content\Labels\solartsunami.png" />
+    <Content Include="Content\Labels\strawberrybasil.png" />
+    <Content Include="Content\Labels\thundersnownado.png" />
+    <Content Include="Content\Labels\wallcloud.png" />
+    <Content Include="Content\Labels\web-LiftedIndex.png" />
+    <Content Include="Content\Labels\webCanLabel5x7-TiramisuWhiteStout.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -303,6 +339,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\Labels\webCanLabel5x7-Barrel-Aged BalticPorter.pdf" />
+    <Content Include="Content\Labels\webCanLabel5x7-CitraWheat.pdf" />
     <None Include="packages.config" />
     <Content Include="_Archive\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="_Archive\fonts\glyphicons-halflings-regular.ttf" />
@@ -327,6 +365,26 @@
     <Content Include="_Archive\fonts\icomoon\icomoon\fonts\icomoon.ttf" />
     <Content Include="_Archive\fonts\icomoon\icomoon\fonts\icomoon.woff" />
     <Content Include="_Archive\fonts\icomoon\icomoon\selection.json" />
+    <Content Include="Views\BeerStyles\Create.cshtml" />
+    <Content Include="Views\BeerStyles\Delete.cshtml" />
+    <Content Include="Views\BeerStyles\Details.cshtml" />
+    <Content Include="Views\BeerStyles\Edit.cshtml" />
+    <Content Include="Views\BeerStyles\Index.cshtml" />
+    <Content Include="Views\Status\Create.cshtml" />
+    <Content Include="Views\Status\Delete.cshtml" />
+    <Content Include="Views\Status\Details.cshtml" />
+    <Content Include="Views\Status\Edit.cshtml" />
+    <Content Include="Views\Status\Index.cshtml" />
+    <Content Include="Views\Packages\Create.cshtml" />
+    <Content Include="Views\Packages\Delete.cshtml" />
+    <Content Include="Views\Packages\Details.cshtml" />
+    <Content Include="Views\Packages\Edit.cshtml" />
+    <Content Include="Views\Packages\Index.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineStore.DATA.EF\OnlineStore.DATA.EF.csproj">

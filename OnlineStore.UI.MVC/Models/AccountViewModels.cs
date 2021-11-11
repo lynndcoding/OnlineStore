@@ -79,6 +79,16 @@ namespace OnlineStore.UI.MVC.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        //Below we add the properties from UserDetails to the RegisterViewModel so we can add those fields to the Register.cshtml, AND we can pass the information to the Post Register action in the AccountController (This is where the program will house the functionality to save a user to the AspNetUsers table and we will add the functionality to also save a record to UserDetails)
+
+        [Required]
+        public string FirstName { get; set; }
+
+        [Required]
+        public string LastName { get; set; }
+
+        public string FavoriteColor { get; set; }
     }
 
     public class ResetPasswordViewModel

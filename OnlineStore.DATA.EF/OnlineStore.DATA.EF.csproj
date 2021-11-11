@@ -50,22 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AspNetRole.cs">
-      <DependentUpon>OnlineStore.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUser.cs">
-      <DependentUpon>OnlineStore.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUserClaim.cs">
-      <DependentUpon>OnlineStore.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUserLogin.cs">
-      <DependentUpon>OnlineStore.tt</DependentUpon>
-    </Compile>
     <Compile Include="BeerStyle.cs">
-      <DependentUpon>OnlineStore.tt</DependentUpon>
-    </Compile>
-    <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>OnlineStore.tt</DependentUpon>
     </Compile>
     <Compile Include="Metadata\OnlineStoreMetadata.cs" />
@@ -94,7 +79,7 @@
     <Compile Include="Status.cs">
       <DependentUpon>OnlineStore.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
+    <Compile Include="UserDetail.cs">
       <DependentUpon>OnlineStore.tt</DependentUpon>
     </Compile>
   </ItemGroup>
