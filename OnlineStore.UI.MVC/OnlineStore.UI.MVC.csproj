@@ -191,22 +191,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="configs\connections.config" />
-    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
-    <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -252,9 +237,62 @@
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\DisplayEmail.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="_Archive\about.html" />
+    <Content Include="_Archive\contact.html" />
+    <Content Include="_Archive\css\animate.css" />
+    <Content Include="_Archive\css\bootstrap.css" />
+    <Content Include="_Archive\css\flexslider.css" />
+    <Content Include="_Archive\css\icomoon.css" />
+    <Content Include="_Archive\css\style.css" />
+    <Content Include="_Archive\css\superfish.css" />
+    <Content Include="_Archive\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="_Archive\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="_Archive\fonts\icomoon\icomoon.svg" />
+    <Content Include="_Archive\fonts\icomoon\icomoon\demo-files\demo.css" />
+    <Content Include="_Archive\fonts\icomoon\icomoon\demo-files\demo.js" />
+    <Content Include="_Archive\fonts\icomoon\icomoon\demo.html" />
+    <Content Include="_Archive\fonts\icomoon\icomoon\fonts\icomoon.svg" />
+    <Content Include="_Archive\fonts\icomoon\icomoon\Read Me.txt" />
+    <Content Include="_Archive\fonts\icomoon\icomoon\style.css" />
+    <Content Include="_Archive\images\b-blueprint.svg" />
+    <Content Include="_Archive\images\b-compass.svg" />
+    <Content Include="_Archive\images\b-engineer.svg" />
+    <Content Include="_Archive\images\b-hammer.svg" />
+    <Content Include="_Archive\images\b-hotel.svg" />
+    <Content Include="_Archive\images\b-tractor.svg" />
+    <Content Include="_Archive\images\loader.gif" />
+    <Content Include="_Archive\images\loc.png" />
+    <Content Include="_Archive\images\person1.jpg" />
+    <Content Include="_Archive\images\person2.jpg" />
+    <Content Include="_Archive\images\person3.jpg" />
+    <Content Include="_Archive\images\project-1.jpg" />
+    <Content Include="_Archive\images\project-2.jpg" />
+    <Content Include="_Archive\images\project-3.jpg" />
+    <Content Include="_Archive\images\project-4.jpg" />
+    <Content Include="_Archive\images\project-5.jpg" />
+    <Content Include="_Archive\images\project-6.jpg" />
+    <Content Include="_Archive\images\slide_1.jpg" />
+    <Content Include="_Archive\images\slide_2.jpg" />
+    <Content Include="_Archive\images\slide_3.jpg" />
+    <Content Include="_Archive\index.html" />
+    <Content Include="_Archive\js\bootstrap.min.js" />
+    <Content Include="_Archive\js\google_map.js" />
+    <Content Include="_Archive\js\hoverIntent.js" />
+    <Content Include="_Archive\js\jquery.easing.1.3.js" />
+    <Content Include="_Archive\js\jquery.flexslider-min.js" />
+    <Content Include="_Archive\js\jquery.min.js" />
+    <Content Include="_Archive\js\jquery.waypoints.min.js" />
+    <Content Include="_Archive\js\magnific-popup-options.js" />
+    <Content Include="_Archive\js\main.js" />
+    <Content Include="_Archive\js\modernizr-2.6.2.min.js" />
+    <Content Include="_Archive\js\respond.min.js" />
+    <Content Include="_Archive\js\superfish.js" />
+    <Content Include="_Archive\services.html" />
+    <Content Include="_Archive\work.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -266,8 +304,29 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="_Archive\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="_Archive\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="_Archive\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="_Archive\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="_Archive\css\.DS_Store" />
+    <Content Include="_Archive\css\bootstrap.css.map" />
+    <Content Include="_Archive\css\style.css.map" />
+    <Content Include="_Archive\images\.DS_Store" />
+    <Content Include="_Archive\images\flaticon license\license.pdf" />
+    <Content Include="_Archive\js\.DS_Store" />
+    <Content Include="_Archive\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="_Archive\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="_Archive\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="_Archive\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="_Archive\fonts\icomoon\.DS_Store" />
+    <Content Include="_Archive\fonts\icomoon\icomoon.eot" />
+    <Content Include="_Archive\fonts\icomoon\icomoon.ttf" />
+    <Content Include="_Archive\fonts\icomoon\icomoon.woff" />
+    <Content Include="_Archive\fonts\icomoon\icomoon\.DS_Store" />
+    <Content Include="_Archive\fonts\icomoon\icomoon\fonts\icomoon.eot" />
+    <Content Include="_Archive\fonts\icomoon\icomoon\fonts\icomoon.ttf" />
+    <Content Include="_Archive\fonts\icomoon\icomoon\fonts\icomoon.woff" />
+    <Content Include="_Archive\fonts\icomoon\icomoon\selection.json" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
