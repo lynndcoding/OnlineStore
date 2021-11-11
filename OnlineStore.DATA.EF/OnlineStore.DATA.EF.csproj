@@ -68,6 +68,7 @@
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>OnlineStore.tt</DependentUpon>
     </Compile>
+    <Compile Include="Metadata\OnlineStoreMetadata.cs" />
     <Compile Include="OnlineStore.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
