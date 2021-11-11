@@ -328,6 +328,12 @@
     <Content Include="_Archive\fonts\icomoon\icomoon\fonts\icomoon.woff" />
     <Content Include="_Archive\fonts\icomoon\icomoon\selection.json" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineStore.DATA.EF\OnlineStore.DATA.EF.csproj">
+      <Project>{92008e9c-e177-4257-ac28-2a499a172739}</Project>
+      <Name>OnlineStore.DATA.EF</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
