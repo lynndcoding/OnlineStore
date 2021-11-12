@@ -3,48 +3,142 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <title>@ViewBag.Title - COMING SOON: My Online Store will be updated SOON!!</title>
+    <meta name="description" content="Free HTML5 Template by FREEHTML5.CO customized by Lynn DiPlacito" />
+    <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+    <meta name="Lynn DiPlacito" content="FREEHTML5.CO" />
+
+    <!--
+      //////////////////////////////////////////////////////
+
+      FREE HTML5 TEMPLATE
+      DESIGNED & DEVELOPED by FREEHTML5.CO
+
+      Website: 		http://freehtml5.co/
+      Email: 			info@freehtml5.co
+      Twitter: 		http://twitter.com/fh5co
+      Facebook: 		https://www.facebook.com/fh5co
+
+      //////////////////////////////////////////////////////
+       -->
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Superfish -->
+    <link rel="stylesheet" href="css/superfish.css">
+    <!-- Flexslider  -->
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Modernizr JS -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    <div class="nav-header">
+        <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+        <h1 id="fh5co-logo">@Html.ActionLink("Queued Brews", "Index", "ShoppingCart")</h1>
+        <!-- START #fh5co-menu-wrap -->
+        <nav id="fh5co-menu-wrap" role="navigation">
+            <ul class="sf-menu" id="fh5co-primary-menu">
 
-                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                @Html.ActionLink("Home", "Index", "Home", null, new { @class = "navbar-brand" })
+                @Html.ActionLink("About", "About", "Home", null, new { @class = "navbar-brand" })
+                @Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "navbar-brand" })
+
+                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")
+                    @Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")
+                }
+
+                @*Got this from bootstrap https://getbootstrap.com/docs/4.3/components/navs/#using-dropdowns*@
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
+                    <div class="dropdown-menu account-dropdown" style="background-color: lightgray;">
+                        @Html.Partial("_LoginPartial")
+                    </div>
+
+                    @* Added the li below to show the shoppingCart in our Layout menu *@
+                    @* Only want to show the cart icon if session cart exists and has more than 0 items in it. *@
+                <li class="nav-item">
+                    @if (Session["cart"] != null &&
+                        ((Dictionary<int, OnlineStore.UI.MVC.Models.CartItemViewModel>)Session["cart"]).Count > 0)
                     {
-                        <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
-                        <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
+                        <a class="dropdown-item" href="/ShoppingCart/Index">
+                            Cart <i class="fa fa-shopping-cart"></i>
+
+                        </a>
                     }
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
+                    else
+                    {
+                        @Html.ActionLink("Cart", "Index", "ShoppingCart")
+                    }
+                </li>
+            </ul>
+        </nav>
     </div>
+
+
+    <!--TODO: navbar collapse button-->
+                @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>*@
+
+
+
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
+        <!-- #region Scripts -->
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script>
+        <!-- jQuery Easing -->
+        <script src="js/jquery.easing.1.3.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Waypoints -->
+        <script src="js/jquery.waypoints.min.js"></script>
+        <!-- Superfish -->
+        <script src="js/hoverIntent.js"></script>
+        <script src="js/superfish.js"></script>
+        <!-- Flexslider -->
+        <script src="js/jquery.flexslider-min.js"></script>
+        <!-- Main JS (Do not remove) -->
+        <script src="js/main.js"></script>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+        <!-- #endregion Scripts-->
+        <!-- #region Footer -->
+        <footer>
+
+            @*<div class="col-md-6 col-md-offset-3 text-center">
+                    <p>&copy; 2016 Free Html5 <a href="#">Beam</a>. All Rights Reserved. <br>Made with <i class="icon-heart3"></i> by <a href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> / Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash </a>,<a href="https://pexels.com/" target="_blank"> Pexels</a> <br> Colored Icons: <a href="http://flaticon.com" target="_blank">Flaticon</a></p>
+                </div>*@
+
+            <p>&copy; @DateTime.Now.Year - Lynn DiPlacito</p>
+
+        </footer>
+        <!-- #endregion Footer-->
+
+
 </body>
 </html>

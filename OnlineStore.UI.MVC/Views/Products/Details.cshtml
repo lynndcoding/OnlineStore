@@ -67,7 +67,22 @@
         </dd>
 
     </dl>
+
+    @* Add to Cart functionality in the UI *@
+    <p>
+        @using (Html.BeginForm("AddToCart", "Products", new { @bookID = Model.BeerStyleID }, FormMethod.Post, new { @class = "text-center" }))
+        {
+            @Html.HiddenFor(x => x.BeerStyleID)
+            @*<span>Quantity: </span>*@
+            @Html.TextBox("Qty", 1, new { @class = "form-control", @style = "max-width: 50px; display:inline;" })
+            <input type="submit" class="btn btn-primary" value="Add to Cart" name="qty" />
+        }
+    </p>
 </div>
+<div class="col-md-6">
+    <img src="~/Content/Labels/@Model.BeerImage" alt="Beer Label Image" title="@Model.BeerStyle" />
+</div>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.BeerID }) |
     @Html.ActionLink("Back to List", "Index")

@@ -1,0 +1,86 @@
+﻿@*@model IEnumerable < OnlineStore.UI.MVC.Models.CartItemViewModel >*@
+@* We added the following model statement to allow the ShoppingCart Dictionary object to be passed into this view, instead of just a CartItemViewModel object. *@
+@model Dictionary<int, OnlineStore.UI.MVC.Models.CartItemViewModel>
+
+@{
+    ViewBag.Title = "Shopping Cart";
+
+    //add local variables to keep track of the total number of items and the total running price for cart items
+    decimal? cartTotal = 0;
+    int totalCountOfItems = 0;
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+
+<p class="text-right">
+    @Html.ActionLink("Queue the Brews", "Index", "Products", null, new { @class = "btn btn-info" })
+</p>
+
+@if (Model.Count == 0)
+{
+    <p class="alert alert-warning">@ViewBag.Message</p>
+}
+else
+{
+    <table class="table">
+        <tr>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Qty)
+                </th>
+                <th></th>*@
+            <th>Beer Label</th>
+            <th>Quantity</th>
+            <th>Beer Style</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/Content/Labels/t_@item.Value.Product.BeerImage" alt="@item.Value.Product.BeerStyle" />
+                </td>
+                <td>
+                    @* Place a space for them to see/update the quantity *@
+                    @using (Html.BeginForm("UpdateCart", "ShoppingCart", FormMethod.Post))
+                    {
+                        @Html.Hidden("BeerID", item.Key)
+                        @Html.TextBox("qty", item.Value.Qty, new { @class = "form-control", @style = "max-width: 50px; display: inline;" })//second param is the initial quantity as the user loads the shopping cart in the UI.
+                        <input type="submit" value="Update Quantity" class="btn btn-info" />
+                    }
+
+                    @* Place a razor block here that will add the totalCountOfItems for each item in the cart *@
+
+                    @{
+                        //calculates the running total number of items in the cart
+                        totalCountOfItems += item.Value.Qty;
+                    }
+                </td>
+                <td>@item.Value.Product.BeerStyle </td>
+                @*<td>@string.Format($"{@item.Value.Product.Price:c}")</td>*@
+                <td>
+                    @* Calc the line total and update the running total variable for each row *@
+                    @*@{
+                        decimal? lineTotal = item.Value.Product.Price * item.Value.Qty;
+                        cartTotal += lineTotal;*@
+                    }
+                    @* Below is what will display in this column *@
+                    @*@string.Format($"{lineTotal:c}")*@
+                </td>
+                <td>
+                    @* ActionLink to remove item from the cart *@
+                    @Html.ActionLink("Remove from Cart", "RemoveFromCart", new { id = item.Key })
+                </td>
+            </tr>
+        }
+
+
+    </table>
+
+    <p class="alert alert-success text-center" style="font-size: 1.25em;">
+        Total Count of Items: @totalCountOfItems<br />
+        Your Total before taxes and shipping is @string.Format($"{cartTotal:c}").
+    </p>
+}

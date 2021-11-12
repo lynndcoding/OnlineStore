@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - COMING SOON: My Online Store will be updated SOON!!</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
+                        <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
+                    }
+
+                    @*Got this from bootstrap https://getbootstrap.com/docs/4.3/components/navs/#using-dropdowns*@
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
+                        <div class="dropdown-menu account-dropdown" style="background-color: lightgray;">
+                            @Html.Partial("_LoginPartial")
+                            </div>
+
+                            @* Added the li below to show the shoppingCart in our Layout menu *@
+                            @* Only want to show the cart icon if session cart exists and has more than 0 items in it. *@
+                    <li class="nav-item">
+                        @if (Session["cart"] != null &&
+                            ((Dictionary<int, OnlineStore.UI.MVC.Models.CartItemViewModel>)Session["cart"]).Count > 0)
+                        {
+                            <a class="dropdown-item" href="/ShoppingCart/Index">
+                                Cart <i class="fa fa-shopping-cart"></i>
+                            </a>
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Cart", "Index", "ShoppingCart")
+                        }
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

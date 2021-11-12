@@ -1,72 +1,69 @@
 ﻿@model IEnumerable<OnlineStore.DATA.EF.Product>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Shopping Cart";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.BeerName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BeerDesc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ABV)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BeerImage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BeerStyle.BeerStyle1)
-        </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.Package.PkgID)
-        </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.Status.Status1)
-        </th>
-        <th></th>
-    </tr>
+<table class="table data-table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BeerImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BeerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BeerStyle.BeerStyle1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ABV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status.Status1)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.BeerName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BeerDesc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ABV)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BeerImage)
-            @*@Html.DisplayFor(modelItem => item.BookImage)*@
-            @*<img src="~/Content/imgstore/Labels/t_@item.BookImage" alt="Book cover" title="@item.BookTitle" />*@
-            <img src="~/Content/Labels/@item.BeerImage" alt="Beer Label Image" title="@item.BeerName" />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BeerStyle.BeerStyle1)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.Package.PkgID)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.Status.Status1)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BeerID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BeerID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BeerID })
-        </td>
-    </tr>
-}
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BeerImage)
+                    <img src="~/Content/Labels/@item.BeerImage" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BeerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BeerStyle.BeerStyle1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ABV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status.Status1)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.BeerID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.BeerID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.BeerID })
+                </td>
+            </tr>
+        }
+    </tbody>
 
 </table>
+
+@section scripts {
+    <script>
+        //Apply datatables plugin
+        $(document).ready(function () {
+            $(".data-table").DataTable();
+        });
+    </script>
+}
